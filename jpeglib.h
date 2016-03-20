@@ -26,6 +26,9 @@
 #endif
 #include "jmorecfg.h"		/* seldom changed options */
 
+#include <stddef.h> // size_t
+#include <stdio.h> // FILE
+
 
 #ifdef __cplusplus
 #ifndef DONT_USE_EXTERN_C
