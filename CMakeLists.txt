@@ -394,7 +394,7 @@ set(INCLUDE_INSTALL_DIR "include")
 # * targets_export_name
 configure_package_config_file("cmake/Config.cmake.in"
   "${CMAKE_BINARY_DIR}/lib/cmake/JPEGConfig.cmake"
-  INSTALL_DESTINATION lib/cmake
+  INSTALL_DESTINATION lib/cmake/JPEG
   PATH_VARS INCLUDE_INSTALL_DIR
 )
 export(TARGETS jpeg FILE ${CMAKE_BINARY_DIR}/lib/cmake/${targets_export_name}.cmake )
@@ -408,10 +408,10 @@ install(TARGETS jpeg cjpeg djpeg jpegtran rdjpgcom wrjpgcom
   RUNTIME DESTINATION bin COMPONENT Runtime
   PUBLIC_HEADER DESTINATION include COMPONENT Development
 )
-install(EXPORT ${targets_export_name} DESTINATION lib/cmake)
+install(EXPORT ${targets_export_name} DESTINATION lib/cmake/JPEG)
 install(FILES "${CMAKE_BINARY_DIR}/lib/cmake/JPEGConfigVersion.cmake"
   "${CMAKE_BINARY_DIR}/lib/cmake/JPEGConfig.cmake"
-  DESTINATION lib/cmake)
+  DESTINATION lib/cmake/JPEG)
 
 ################### TESTS
 enable_testing()
