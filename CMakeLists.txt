@@ -5,21 +5,6 @@ set(CMAKE_BUILD_TYPE Release CACHE STRING
 project(JPEG VERSION 9.b LANGUAGES C)
 set(srcdir ${JPEG_SOURCE_DIR})
 
-foreach(cfg Debug Release RelWithDebInfo MinSizeRel None)
-  string(TOUPPER "_${cfg}" cfgo)
-  if( "${cfg}" STREQUAL "Release" )
-    set(odir "${CMAKE_BINARY_DIR}")
-  elseif( "${cfg}" STREQUAL "None")
-    set(odir "${CMAKE_BINARY_DIR}")
-    set(cfgo "")
-  else()
-    set(odir "${CMAKE_BINARY_DIR}/${cfg}")
-  endif()
-  set(CMAKE_RUNTIME_OUTPUT_DIRECTORY${cfgo} "${odir}/bin")
-  set(CMAKE_LIBRARY_OUTPUT_DIRECTORY${cfgo} "${odir}/lib")
-  set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY${cfgo} "${odir}/lib")
-endforeach()
-
 #-----------------------------------------------------------------------------
 # Include all the necessary files for macros
 #-----------------------------------------------------------------------------
