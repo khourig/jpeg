@@ -72,15 +72,15 @@ check_include_file(strings.h HAVE_STRINGS_H)
 if( HAVE_STRINGS_H AND NOT HAVE_STRING_H )
   set(NEED_BSD_STRINGS 1)
 endif()
-check_type_size(size_t SIZE_T)
+check_type_size(size_t SIZE_T) # -> HAVE_SIZE_T
 if( NOT HAVE_SIZE_T )
   message(WARNING "Type size_t is not defined in any of the usual places.
     Try putting 'typedef unsigned int size_t;' in jconfig.h."
   )
 endif()
-check_type_size("unsigned char" UNSIGNED_CHAR)
-check_type_size("unsigned short" UNSIGNED_SHORT)
-check_type_size(char CHAR)
+check_type_size("unsigned char" UNSIGNED_CHAR) # -> HAVE_UNSIGNED_CHAR
+check_type_size("unsigned short" UNSIGNED_SHORT) # -> HAVE_UNSIGNED_SHORT
+check_type_size(char CHAR) # -> HAVE_CHAR
 if( NOT HAVE_CHAR )
   message(ERROR "Major BUG: no 'char' in C.")
 endif()
