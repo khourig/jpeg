@@ -313,7 +313,7 @@ set(TESTFILES testorig.jpg testimg.ppm testimg.bmp testimg.jpg testprog.jpg
 set(jpeg_LIB_SRCS ${LIBSOURCES} jquant2.c ${INSTINCLUDES} ${OTHERINCLUDES})
 add_library(jpeg SHARED ${jpeg_LIB_SRCS})
 
-set_target_properties(jpeg PROPERTIES VERSION 8.4.0 SOVERSION 8
+set_target_properties(jpeg PROPERTIES VERSION 9.b SOVERSION 9
   PUBLIC_HEADER "${INSTINCLUDES}"
   DEFINE_SYMBOL "JPEG_DLL_EXPORTS"
   FOLDER Libraries
