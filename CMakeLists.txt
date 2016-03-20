@@ -204,7 +204,7 @@ endif()
 
 # checking fo C has const
 check_c_source_compiles(
-  "const char *ch; const int x=17; int func(const int *i) {return x + (*i);} int main() {return func(&x);}" 
+  "const char *ch; const int x=17; int func(const int *i) {return x + (*i);} int main() {return func(&x);}"
   HAVE_C_CONST
 )
 if( NOT HAVE_C_CONST )
