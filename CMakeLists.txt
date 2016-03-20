@@ -291,13 +291,13 @@ set_source_files_properties(${jconfig_h} PROPERTIES GENERATED TRUE)
 source_group(Interface FILES ${INSTINCLUDES})
 
 # Headers which are not installed
-set(OTHERINCLUDES tools/cderror.h tools/cdjpeg.h jdct.h jinclude.h
+set(OTHERINCLUDES cderror.h cdjpeg.h jdct.h jinclude.h
   jmemsys.h jpegint.h
-  jversion.h tools/transupp.h
+  jversion.h transupp.h
 )
 
 # Manual pages (Automake uses 'MANS' for itself)
-set(DISTMANS man/cjpeg.1 man/djpeg.1 man/jpegtran.1 man/rdjpgcom.1 man/wrjpgcom.1)
+set(DISTMANS cjpeg.1 djpeg.1 jpegtran.1 rdjpgcom.1 wrjpgcom.1)
 
 # Other documentation files
 set(DOCS README "install.txt" usage.txt wizard.txt tools/example.c libjpeg.txt
