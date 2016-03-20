@@ -4,7 +4,6 @@ set(CMAKE_BUILD_TYPE Release CACHE STRING
 
 project(JPEG VERSION 9.b LANGUAGES C)
 set(srcdir ${JPEG_SOURCE_DIR})
-set(CMAKE_INSTALL_PREFIX "${CMAKE_BINARY_DIR}/Installation")
 
 foreach(cfg Debug Release RelWithDebInfo MinSizeRel None)
   string(TOUPPER "_${cfg}" cfgo)
