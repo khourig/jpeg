@@ -99,8 +99,6 @@ if( NOT ( HAVE_MKTEMP_SYMBOL AND HAVE_MKTEMP_FUNC AND HAVE_MKTEMP_DEFINITION) )
   set(NO_MKTEMP 1)
 endif()
 
-set(MEMORYMGR jmemnobs)
-
 # See if compiler supports prototypes.
 check_c_source_compiles(
 "int testfunction (int arg1, int * arg2); /* check prototypes */
@@ -276,7 +274,7 @@ set(LIBSOURCES
   jddctmgr.c jdhuff.c jdinput.c jdmainct.c jdmarker.c jdmaster.c
   jdmerge.c jdpostct.c jdsample.c jdtrans.c jerror.c jfdctflt.c
   jfdctfst.c jfdctint.c jidctflt.c jidctfst.c jidctint.c jquant1.c
-  jutils.c jmemmgr.c ${MEMORYMGR}.c
+  jutils.c jmemmgr.c jmemnobs.c)
 )
 
 # System dependent sources
