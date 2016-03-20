@@ -311,7 +311,7 @@ set(TESTFILES testorig.jpg testimg.ppm testimg.bmp testimg.jpg testprog.jpg
   testimgp.jpg)
 
 set(jpeg_LIB_SRCS ${LIBSOURCES} jquant2.c ${INSTINCLUDES} ${OTHERINCLUDES})
-add_library(jpeg SHARED ${jpeg_LIB_SRCS})
+add_library(jpeg ${jpeg_LIB_SRCS})
 
 set_target_properties(jpeg PROPERTIES VERSION 9.0 SOVERSION 9
   PUBLIC_HEADER "${INSTINCLUDES}"
