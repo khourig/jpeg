@@ -3,7 +3,7 @@ set(CMAKE_BUILD_TYPE Release CACHE STRING
   "Choose the type of build: None Debug Release RelWithDebInfo MinSizeRel")
 set(CMAKE_C_STANDARD 11) # supported: 90, 99, 11
 
-project(JPEG VERSION 8.4 LANGUAGES C)
+project(JPEG VERSION 9.b LANGUAGES C)
 set(srcdir ${JPEG_SOURCE_DIR})
 set(CMAKE_MACOSX_RPATH ON)
 set(CMAKE_INSTALL_PREFIX "${CMAKE_BINARY_DIR}/Installation")
