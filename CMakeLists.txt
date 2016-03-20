@@ -36,13 +36,6 @@ if( CMAKE_COMPILER_IS_GNUCC )
     gcc_Wl_version_script)
   check_c("-Wl,-no-undefined" gcc_no_undefined)
 elseif( MSVC )
-  message(STATUS "Microsoft C/C++.  OPTIMIZATIONS DISABLED FOR jquant2.c !!!")
-  message(STATUS "Workaround for MSVC optimization bug is implemented with pragma")
-  message(STATUS "Optimiations disabled for MSVC versions <= 30.0")
-  if( ${MSVC_VERSION} GREATER 3000 )
-    message(FATAL_ERROR "MSVC version ${MSVC_VERSION} is not supported, some tests might fail, see jquant2.c")
-  endif()
-  # so at the moment using #pragma optimize in jquant2.c
   add_definitions("-D_CRT_SECURE_NO_WARNINGS") # disable non-secure API warnings
 else()
   # per cmake 2.8.8 documentation the following is not portable
