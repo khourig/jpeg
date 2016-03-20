@@ -1,7 +1,6 @@
 cmake_minimum_required(VERSION 3.0.0)
 set(CMAKE_BUILD_TYPE Release CACHE STRING
   "Choose the type of build: None Debug Release RelWithDebInfo MinSizeRel")
-set(CMAKE_C_STANDARD 11) # supported: 90, 99, 11
 
 project(JPEG VERSION 9.b LANGUAGES C)
 set(srcdir ${JPEG_SOURCE_DIR})
