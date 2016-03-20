@@ -337,42 +337,42 @@ endif()
 ########### Executables ###############
 
 set(cjpeg_SRCS
-    tools/cjpeg.c
-    tools/rdppm.c
-    tools/rdgif.c
-    tools/rdtarga.c
-    tools/rdrle.c
-    tools/rdbmp.c
-    tools/rdswitch.c
-    tools/cdjpeg.c)
+    cjpeg.c
+    rdppm.c
+    rdgif.c
+    rdtarga.c
+    rdrle.c
+    rdbmp.c
+    rdswitch.c
+    cdjpeg.c)
 add_executable(cjpeg ${cjpeg_SRCS})
 target_link_libraries(cjpeg jpeg)
 
 set(djpeg_SRCS
-    tools/djpeg.c
-    tools/wrppm.c
-    tools/wrgif.c
-    tools/wrtarga.c
-    tools/wrrle.c
-    tools/wrbmp.c
-    tools/rdcolmap.c
-    tools/cdjpeg.c)
+    djpeg.c
+    wrppm.c
+    wrgif.c
+    wrtarga.c
+    wrrle.c
+    wrbmp.c
+    rdcolmap.c
+    cdjpeg.c)
 add_executable(djpeg ${djpeg_SRCS})
 target_link_libraries(djpeg jpeg)
 
 set(jpegtran_SRCS
-    tools/jpegtran.c
-    tools/rdswitch.c
-    tools/cdjpeg.c
-    tools/transupp.c)
+    jpegtran.c
+    rdswitch.c
+    cdjpeg.c
+    transupp.c)
 add_executable(jpegtran ${jpegtran_SRCS})
 target_link_libraries(jpegtran jpeg)
 
-add_executable(rdjpgcom tools/rdjpgcom.c)
+add_executable(rdjpgcom rdjpgcom.c)
 target_include_directories(rdjpgcom PRIVATE "${CMAKE_BINARY_DIR}/include")
 
 
-add_executable(wrjpgcom tools/wrjpgcom.c)
+add_executable(wrjpgcom wrjpgcom.c)
 target_include_directories(wrjpgcom PRIVATE "${CMAKE_BINARY_DIR}/include")
 
 set_target_properties(cjpeg djpeg jpegtran rdjpgcom wrjpgcom  PROPERTIES FOLDER
