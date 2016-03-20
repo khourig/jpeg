@@ -417,36 +417,36 @@ install(FILES "${CMAKE_BINARY_DIR}/lib/cmake/JPEGConfigVersion.cmake"
 enable_testing()
 
 add_test(NAME djpeg-test1 COMMAND
-  $<TARGET_FILE:djpeg> -dct int -ppm -outfile testout.ppm  ${srcdir}/tests/testorig.jpg)
+  djpeg -dct int -ppm -outfile testout.ppm  ${srcdir}/tests/testorig.jpg)
 add_test(djpeg-diff-test1 ${CMAKE_COMMAND} -E compare_files ${srcdir}/tests/testimg.ppm testout.ppm)
 set_tests_properties(djpeg-diff-test1 PROPERTIES DEPENDS djpeg-test1)
 
 add_test(NAME djpeg-test2 COMMAND
-  $<TARGET_FILE:djpeg> -dct int -bmp -colors 256 -outfile testout.bmp  ${srcdir}/tests/testorig.jpg)
+  djpeg -dct int -bmp -colors 256 -outfile testout.bmp  ${srcdir}/tests/testorig.jpg)
 add_test(djpeg-diff-test2
   ${CMAKE_COMMAND} -E compare_files ${srcdir}/tests/testimg.bmp testout.bmp)
 set_tests_properties(djpeg-diff-test2 PROPERTIES DEPENDS djpeg-test2)
 
 add_test(NAME cjpeg-test1
-  COMMAND $<TARGET_FILE:cjpeg> -dct int -outfile testout.jpg  ${srcdir}/tests/testimg.ppm)
+  COMMAND cjpeg -dct int -outfile testout.jpg  ${srcdir}/tests/testimg.ppm)
 add_test(cjpeg-diff-test1
   ${CMAKE_COMMAND} -E compare_files  ${srcdir}/tests/testimg.jpg testout.jpg)
 set_tests_properties(cjpeg-diff-test1 PROPERTIES DEPENDS cjpeg-test1)
 
 add_test(NAME djpeg-test3 COMMAND
-  $<TARGET_FILE:djpeg> -dct int -ppm -outfile testoutp.ppm ${srcdir}/tests/testprog.jpg)
+  djpeg -dct int -ppm -outfile testoutp.ppm ${srcdir}/tests/testprog.jpg)
 add_test(djpeg-diff-test3
   ${CMAKE_COMMAND} -E compare_files ${srcdir}/tests/testimg.ppm testoutp.ppm)
 set_tests_properties(djpeg-diff-test3 PROPERTIES DEPENDS djpeg-test3)
 
 add_test(NAME cjpeg-test2 COMMAND
-  $<TARGET_FILE:cjpeg> -dct int -progressive -opt -outfile testoutp.jpg ${srcdir}/tests/testimg.ppm)
+  cjpeg -dct int -progressive -opt -outfile testoutp.jpg ${srcdir}/tests/testimg.ppm)
 add_test(cjpeg-diff-test2
   ${CMAKE_COMMAND} -E compare_files ${srcdir}/tests/testimgp.jpg testoutp.jpg)
 set_tests_properties(cjpeg-diff-test2 PROPERTIES DEPENDS cjpeg-test2)
 
 add_test(NAME jpegtran-test1 COMMAND
-  $<TARGET_FILE:jpegtran> -outfile testoutt.jpg ${srcdir}/tests/testprog.jpg)
+  jpegtran -outfile testoutt.jpg ${srcdir}/tests/testprog.jpg)
 add_test(jpegtran-diff-test1
   ${CMAKE_COMMAND} -E compare_files ${srcdir}/tests/testorig.jpg testoutt.jpg)
 set_tests_properties(jpegtran-diff-test1 PROPERTIES DEPENDS jpegtran-test1)
