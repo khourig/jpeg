@@ -459,5 +459,3 @@ set_tests_properties(jpegtran-diff-test1 jpegtran-test1 cjpeg-diff-test2
 
 include(InstallRequiredSystemLibraries)
 include(CPack)
-
-# vim:noet ts=4 sw=4
