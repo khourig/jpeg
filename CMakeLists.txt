@@ -8,18 +8,12 @@ set(srcdir ${JPEG_SOURCE_DIR})
 #-----------------------------------------------------------------------------
 # Include all the necessary files for macros
 #-----------------------------------------------------------------------------
-include (CheckFunctionExists)
-include (CheckIncludeFile)
-include (CheckIncludeFileCXX)
-include (CheckIncludeFiles)
-include (CheckLibraryExists)
-include (CheckSymbolExists)
-include (CheckTypeSize)
-include (CheckVariableExists)
-# include (CheckPrototypeDefinition) # not in 2.8.4
-include (CheckCSourceCompiles)
-include (CheckCSourceRuns)
-include (CheckCCompilerFlag)
+include (CheckFunctionExists) # check_function_exists
+include (CheckIncludeFile) # check_include_file
+include (CheckSymbolExists) # check_symbol_exists
+include (CheckTypeSize) # check_type_size
+include (CheckCSourceCompiles) # check_c_source_compiles
+include (CheckCCompilerFlag) # check_c_compiler_flag
 
 function(check_c flag result_var)
   set(CMAKE_REQUIRED_FLAGS ${flag}) # to test linking as well
