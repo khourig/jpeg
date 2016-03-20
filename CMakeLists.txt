@@ -91,11 +91,9 @@ endif()
 
 check_symbol_exists(tmpfile stdio.h HAVE_TMPFILE_SYMBOL)
 check_function_exists(tmpfile HAVE_TMPFILE_FUNC)
-# check_prototype_definition(tmpfile "FILE *tmpfile()" NULL stdio.h HAVE_TMPFILE_DEFINITION)
 
 check_symbol_exists(mktemp stdlib.h HAVE_MKTEMP_SYMBOL)
 check_function_exists(mktemp HAVE_MKTEMP_FUNC)
-# check_prototype_definition(mktemp "char* mktemp(char* filename)" NULL stdlib.h HAVE_MKTEMP_DEFINITION)
 
 if( NOT ( HAVE_MKTEMP_SYMBOL AND HAVE_MKTEMP_FUNC AND HAVE_MKTEMP_DEFINITION) )
   set(NO_MKTEMP 1)
