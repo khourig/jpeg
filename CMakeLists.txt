@@ -3,8 +3,8 @@ set(CMAKE_BUILD_TYPE Release CACHE STRING
   "Choose the type of build: None Debug Release RelWithDebInfo MinSizeRel")
 set(CMAKE_C_STANDARD 11) # supported: 90, 99, 11
 
-project(jpeg VERSION 8.4 LANGUAGES C)
-set(srcdir ${jpeg_SOURCE_DIR})
+project(JPEG VERSION 8.4 LANGUAGES C)
+set(srcdir ${JPEG_SOURCE_DIR})
 set(CMAKE_MACOSX_RPATH ON)
 set(CMAKE_INSTALL_PREFIX "${CMAKE_BINARY_DIR}/Installation")
 
@@ -88,7 +88,7 @@ endif()
 
 set( CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${CWARNFLAGS}" )
 
-link_directories(${jpeg_BINARY_DIR})
+link_directories(${JPEG_BINARY_DIR})
 
 check_include_file(stddef.h HAVE_STDDEF_H)
 check_include_file(stdlib.h HAVE_STDLIB_H)
