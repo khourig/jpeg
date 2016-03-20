@@ -279,21 +279,21 @@ set(LIBSOURCES
 
 # System dependent sources
 set(SYSDEPSOURCES
-  src/jmemansi.c src/jmemname.c src/jmemnobs.c src/jmemdos.c src/jmemmac.c
+  jmemansi.c jmemname.c jmemnobs.c jmemdos.c jmemmac.c
 )
 
 set(jconfig_h "${CMAKE_BINARY_DIR}/include/jconfig.h")
 configure_file(jconfig-cmake.cfg ${jconfig_h})
 
 # Headers which are installed to support the library
-set(INSTINCLUDES  src/jerror.h src/jmorecfg.h src/jpeglib.h ${jconfig_h})
+set(INSTINCLUDES  jerror.h jmorecfg.h jpeglib.h ${jconfig_h})
 set_source_files_properties(${jconfig_h} PROPERTIES GENERATED TRUE)
 source_group(Interface FILES ${INSTINCLUDES})
 
 # Headers which are not installed
-set(OTHERINCLUDES tools/cderror.h tools/cdjpeg.h src/jdct.h src/jinclude.h
-  src/jmemsys.h src/jpegint.h
-  src/jversion.h tools/transupp.h
+set(OTHERINCLUDES tools/cderror.h tools/cdjpeg.h jdct.h jinclude.h
+  jmemsys.h jpegint.h
+  jversion.h tools/transupp.h
 )
 
 # Manual pages (Automake uses 'MANS' for itself)
@@ -310,7 +310,7 @@ set(OTHERFILES jconfig.txt libjpeg.map)
 set(TESTFILES testorig.jpg testimg.ppm testimg.bmp testimg.jpg testprog.jpg
   testimgp.jpg)
 
-set(jpeg_LIB_SRCS ${LIBSOURCES} src/jquant2.c ${INSTINCLUDES} ${OTHERINCLUDES})
+set(jpeg_LIB_SRCS ${LIBSOURCES} jquant2.c ${INSTINCLUDES} ${OTHERINCLUDES})
 add_library(jpeg SHARED ${jpeg_LIB_SRCS})
 
 set_target_properties(jpeg PROPERTIES VERSION 8.4.0 SOVERSION 8
@@ -320,7 +320,7 @@ set_target_properties(jpeg PROPERTIES VERSION 8.4.0 SOVERSION 8
 )
 target_include_directories(jpeg PUBLIC
   $<BUILD_INTERFACE:${CMAKE_BINARY_DIR}/include>
-  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/src>
+  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>
   "$<INSTALL_INTERFACE:include>"
 )
 
@@ -369,11 +369,11 @@ add_executable(jpegtran ${jpegtran_SRCS})
 target_link_libraries(jpegtran jpeg)
 
 add_executable(rdjpgcom tools/rdjpgcom.c)
-target_include_directories(rdjpgcom PRIVATE src "${CMAKE_BINARY_DIR}/include")
+target_include_directories(rdjpgcom PRIVATE "${CMAKE_BINARY_DIR}/include")
 
 
 add_executable(wrjpgcom tools/wrjpgcom.c)
-target_include_directories(wrjpgcom PRIVATE src "${CMAKE_BINARY_DIR}/include")
+target_include_directories(wrjpgcom PRIVATE "${CMAKE_BINARY_DIR}/include")
 
 set_target_properties(cjpeg djpeg jpegtran rdjpgcom wrjpgcom  PROPERTIES FOLDER
   Executables/jpeg)
