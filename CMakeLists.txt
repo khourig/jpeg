@@ -380,33 +380,37 @@ set_target_properties(cjpeg djpeg jpegtran rdjpgcom wrjpgcom  PROPERTIES FOLDER
 
 ########## setup configuration headers ###########
 
+set(targets_export_name "${PROJECT_NAME}Targets")
+
 include(CMakePackageConfigHelpers)
 write_basic_package_version_file(
-  "${CMAKE_BINARY_DIR}/lib/cmake/jpeg-config-version.cmake"
+  "${CMAKE_BINARY_DIR}/lib/cmake/JPEGConfigVersion.cmake"
   COMPATIBILITY AnyNewerVersion
 )
 
 set(INCLUDE_INSTALL_DIR "include")
 
-configure_package_config_file(jpeg-config.cmake.in
-  "${CMAKE_BINARY_DIR}/lib/cmake/jpeg-config.cmake"
+# Use:
+# * targets_export_name
+configure_package_config_file("cmake/Config.cmake.in"
+  "${CMAKE_BINARY_DIR}/lib/cmake/JPEGConfig.cmake"
   INSTALL_DESTINATION lib/cmake
   PATH_VARS INCLUDE_INSTALL_DIR
 )
-export(TARGETS jpeg FILE ${CMAKE_BINARY_DIR}/lib/cmake/jpeg-targets.cmake )
+export(TARGETS jpeg FILE ${CMAKE_BINARY_DIR}/lib/cmake/${targets_export_name}.cmake )
 
 ########### install files ###############
 
 install(TARGETS jpeg cjpeg djpeg jpegtran rdjpgcom wrjpgcom
-  EXPORT jpeg-targets
+  EXPORT ${targets_export_name}
   LIBRARY DESTINATION lib COMPONENT Runtime
   ARCHIVE DESTINATION lib COMPONENT Development
   RUNTIME DESTINATION bin COMPONENT Runtime
   PUBLIC_HEADER DESTINATION include COMPONENT Development
 )
-install(EXPORT jpeg-targets FILE jpeg-targets.cmake DESTINATION lib/cmake)
-install(FILES "${CMAKE_BINARY_DIR}/lib/cmake/jpeg-config-version.cmake"
-  "${CMAKE_BINARY_DIR}/lib/cmake/jpeg-config.cmake"
+install(EXPORT ${targets_export_name} DESTINATION lib/cmake)
+install(FILES "${CMAKE_BINARY_DIR}/lib/cmake/JPEGConfigVersion.cmake"
+  "${CMAKE_BINARY_DIR}/lib/cmake/JPEGConfig.cmake"
   DESTINATION lib/cmake)
 
 ################### TESTS
