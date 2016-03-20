@@ -422,8 +422,18 @@ else()
 
   add_test(NAME djpeg-test2 COMMAND
     djpeg -dct int -bmp -colors 256 -outfile testout.bmp  ${srcdir}/testorig.jpg)
-  add_test(djpeg-diff-test2
-    ${CMAKE_COMMAND} -E compare_files ${srcdir}/testimg.bmp testout.bmp)
+
+  set(
+      test_opts
+      NAME djpeg-diff-test2
+      COMMAND ${CMAKE_COMMAND} -E compare_files ${srcdir}/testimg.bmp testout.bmp
+  )
+  if(MSVC)
+    add_test(${test_opts} CONFIGURATIONS Debug)
+  else()
+    add_test(${test_opts})
+  endif()
+
   set_tests_properties(djpeg-diff-test2 PROPERTIES DEPENDS djpeg-test2)
 
   add_test(NAME cjpeg-test1
