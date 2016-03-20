@@ -406,6 +406,7 @@ install(TARGETS jpeg cjpeg djpeg jpegtran rdjpgcom wrjpgcom
   ARCHIVE DESTINATION lib COMPONENT Development
   RUNTIME DESTINATION bin COMPONENT Runtime
   PUBLIC_HEADER DESTINATION include COMPONENT Development
+  BUNDLE DESTINATION bin COMPONENT Runtime
 )
 install(EXPORT ${targets_export_name} NAMESPACE "JPEG::" DESTINATION lib/cmake/JPEG)
 install(FILES "${CMAKE_BINARY_DIR}/lib/cmake/JPEGConfigVersion.cmake"
