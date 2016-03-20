@@ -64,8 +64,6 @@ endif()
 
 set( CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${CWARNFLAGS}" )
 
-link_directories(${JPEG_BINARY_DIR})
-
 check_include_file(stddef.h HAVE_STDDEF_H)
 check_include_file(stdlib.h HAVE_STDLIB_H)
 check_include_file(locale.h HAVE_LOCALE_H)
