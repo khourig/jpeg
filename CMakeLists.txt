@@ -300,7 +300,7 @@ set(OTHERINCLUDES cderror.h cdjpeg.h jdct.h jinclude.h
 set(DISTMANS cjpeg.1 djpeg.1 jpegtran.1 rdjpgcom.1 wrjpgcom.1)
 
 # Other documentation files
-set(DOCS README "install.txt" usage.txt wizard.txt tools/example.c libjpeg.txt
+set(DOCS README "install.txt" usage.txt wizard.txt example.c libjpeg.txt
   structure.txt coderules.txt filelist.txt change.log)
 
 # Miscellaneous support files
