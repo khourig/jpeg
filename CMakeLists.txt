@@ -274,7 +274,7 @@ set(LIBSOURCES
   jddctmgr.c jdhuff.c jdinput.c jdmainct.c jdmarker.c jdmaster.c
   jdmerge.c jdpostct.c jdsample.c jdtrans.c jerror.c jfdctflt.c
   jfdctfst.c jfdctint.c jidctflt.c jidctfst.c jidctint.c jquant1.c
-  jutils.c jmemmgr.c jmemnobs.c)
+  jutils.c jmemmgr.c jmemnobs.c
 )
 
 # System dependent sources
