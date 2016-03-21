@@ -9,3 +9,6 @@ Linux/OSX  Windows
 ========== ==========
 |Travis|   |AppVeyor|
 ========== ==========
+
+* `Hunter wiki page <https://github.com/ruslo/hunter/wiki/pkg.jpeg>`_
+* `Hunter testing/upload <https://github.com/ingenue/hunter/branches/all?utf8=%E2%9C%93&query=jpeg>`_
