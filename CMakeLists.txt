@@ -393,7 +393,13 @@ configure_package_config_file("cmake/Config.cmake.in"
 
 ########### install files ###############
 
-install(TARGETS jpeg cjpeg djpeg jpegtran rdjpgcom wrjpgcom
+if(IOS)
+  set(libs_to_install jpeg)
+else()
+  set(libs_to_install jpeg cjpeg djpeg jpegtran rdjpgcom wrjpgcom)
+endif()
+
+install(TARGETS ${libs_to_install}
   EXPORT ${targets_export_name}
   LIBRARY DESTINATION lib COMPONENT Runtime
   ARCHIVE DESTINATION lib COMPONENT Development
