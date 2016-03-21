@@ -428,10 +428,13 @@ else()
       NAME djpeg-diff-test2
       COMMAND ${CMAKE_COMMAND} -E compare_files ${srcdir}/testimg.bmp testout.bmp
   )
-  if(MSVC)
-    add_test(${test_opts} CONFIGURATIONS Debug)
-  else()
+  if(NOT MSVC OR MSVC_VERSION VERSION_LESS 1600) # Visual Studio 10 2010
     add_test(${test_opts})
+  else()
+    # Since Visual Studio 10 2010 Release version produce slightly different
+    # final image so it doesn't match etalon:
+    # * https://ci.appveyor.com/project/ruslo/jpeg/build/1.0.2
+    add_test(${test_opts} CONFIGURATIONS Debug)
   endif()
 
   set_tests_properties(djpeg-diff-test2 PROPERTIES DEPENDS djpeg-test2)
