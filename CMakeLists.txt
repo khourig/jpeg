@@ -11,7 +11,6 @@ set(srcdir ${JPEG_SOURCE_DIR})
 include (CheckFunctionExists) # check_function_exists
 include (CheckIncludeFile) # check_include_file
 include (CheckSymbolExists) # check_symbol_exists
-include (CheckTypeSize) # check_type_size
 include (CheckCSourceCompiles) # check_c_source_compiles
 include (CheckCCompilerFlag) # check_c_compiler_flag
 
@@ -64,22 +63,6 @@ check_include_file(string.h HAVE_STRING_H)
 check_include_file(strings.h HAVE_STRINGS_H)
 if( HAVE_STRINGS_H AND NOT HAVE_STRING_H )
   set(NEED_BSD_STRINGS 1)
-endif()
-check_type_size(size_t SIZE_T) # -> HAVE_SIZE_T
-if( NOT HAVE_SIZE_T )
-  message(WARNING "Type size_t is not defined in any of the usual places.
-    Try putting 'typedef unsigned int size_t;' in jconfig.h."
-  )
-endif()
-check_type_size("unsigned char" UNSIGNED_CHAR) # -> HAVE_UNSIGNED_CHAR
-check_type_size("unsigned short" UNSIGNED_SHORT) # -> HAVE_UNSIGNED_SHORT
-check_type_size(char CHAR) # -> HAVE_CHAR
-if( NOT HAVE_CHAR )
-  message(ERROR "Major BUG: no 'char' in C.")
-endif()
-if( NOT (CHAR EQUAL 1) )
-  message(WARNING  "Hmm, it seems char is not eight bits wide on your machine. "
-    "I fear the JPEG software will not work at all.")
 endif()
 
 check_symbol_exists(tmpfile stdio.h HAVE_TMPFILE_SYMBOL)
