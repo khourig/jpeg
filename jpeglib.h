@@ -23,11 +23,16 @@
 
 #ifndef JCONFIG_INCLUDED	/* in case jinclude.h already did */
 #include "jconfig.h"		/* widely used configuration options */
-#endif
-#include "jmorecfg.h"		/* seldom changed options */
 
+#ifdef HAVE_STDDEF_H
 #include <stddef.h> // size_t
+#endif
+
 #include <stdio.h> // FILE
+
+#endif
+
+#include "jmorecfg.h"		/* seldom changed options */
 
 #ifdef __cplusplus
 #ifndef DONT_USE_EXTERN_C
